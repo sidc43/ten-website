@@ -38,11 +38,18 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -60px 0px'
+    threshold: 0,
+    rootMargin: '200px 0px 0px 0px'
   });
 
-  revealElements.forEach(el => revealObserver.observe(el));
+  revealElements.forEach(el => {
+    // Immediately show elements already in or above viewport
+    if (el.getBoundingClientRect().top < window.innerHeight + 100) {
+      el.classList.add('visible');
+    } else {
+      revealObserver.observe(el);
+    }
+  });
 
   // ---------- STAT COUNTER ANIMATION ----------
   const statNumbers = document.querySelectorAll('.stat-number[data-count]');
