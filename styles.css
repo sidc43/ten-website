@@ -1094,7 +1094,7 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 12px;
   background: none;
   border: none;
   cursor: pointer;
